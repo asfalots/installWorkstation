@@ -25,7 +25,7 @@ exec(){
 
 }
 
-PACKET_LIST="geany guake openjdk-7-jre zend-server-php-5.3 mysql-server pgadmin3 git gitk putty filezilla nfs-common firefox chromium-browser terminator playonlinux mysql-workbench oracle-java7-installer ssh shutter"
+PACKET_LIST="geany guake openjdk-7-jre zend-server-php-5.3 mysql-server pgadmin3 git gitk putty filezilla nfs-common firefox chromium-browser terminator playonlinux mysql-workbench oracle-java7-installer ssh shutter meld"
 
 
 #Detect System
