@@ -33,9 +33,11 @@ if [ $(getconf LONG_BIT) = '64' ]; then
 	ZEND_STUDIO_URL="http://downloads.zend.com/studio-eclipse/10.0.1/ZendStudio-10.1.0-x86_64.tar.gz"
 	SUBLIME_URL="http://c758482.r82.cf2.rackcdn.com/sublime_text_3_build_3047_x64.tar.bz2"
 	PACKET_LIST="$PACKET_LIST ia32-libs"
+	YED_URL="http://www.yworks.com/products/yed/demo/yEd-3.11.1_64-bit_setup.sh"
 else
 	ZEND_STUDIO_URL="http://downloads.zend.com/studio-eclipse/10.0.1/ZendStudio-10.1.0-x86.tar.gz"
 	SUBLIME_URL="http://c758482.r82.cf2.rackcdn.com/sublime_text_3_build_3047_x32.tar.bz2"
+	YED_URL="http://www.yworks.com/products/yed/demo/yEd-3.11.1_32-bit_setup.sh"
 fi
 SOAPUI_URL="http://downloads.sourceforge.net/project/soapui/soapui/4.6.0/soapui-4.6.0-linux-bin.tar.gz"
 ZEND_SERVER_REPO="deb http://repos.zend.com/zend-server/6.0/deb server non-free"
@@ -132,16 +134,29 @@ EOF
 	cd -
 }
 
+install_yed(){
+	cd /tmp
+	wget -c --output-document=yed.sh $YED_URL >/dev/null
+	chmod +x yed.sh
+	./yed.sh
+}
+
 echo -en "Press enter to downlad Zend Studio or s for SKIP \r"
 read NEXT
 if(NEXT != 's');then
 	exec "Installing Zend Studio" "install_zs"
 fi
 
-echo -en "Press enter to downlad Sublie Text 3 or s for SKIP \r"
+echo -en "Press enter to downlad Sublime Text 3 or s for SKIP \r"
 read NEXT
 if(NEXT != 's');then
 	exec "Installing Sublime Text 3" "install_sublime"
+fi
+
+echo -en "Press enter to downlad yED or s for SKIP \r"
+read NEXT
+if(NEXT != 's');then
+	exec "Installing yED" "install_yed"
 fi
 
 
