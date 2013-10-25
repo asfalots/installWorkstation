@@ -43,6 +43,7 @@ SOAPUI_URL="http://downloads.sourceforge.net/project/soapui/soapui/4.6.0/soapui-
 ZEND_SERVER_REPO="deb http://repos.zend.com/zend-server/6.0/deb server non-free"
 POSTGRES_REPO="deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main"
 MYSQL_DEFAULT_PASSWORD="root"
+COMPOSER_URL="http://getcomposer.org/composer.phar"
 
 
 echo $ZEND_SERVER_REPO > /etc/apt/sources.list.d/zend.list
@@ -84,7 +85,7 @@ install_zs(){
 	wget -c $ZEND_STUDIO_URL >/dev/null
 	tar -zxvf Zend* >/dev/null
 	mv ZendStudio /usr/opt/zendstudio
-	ln -s /usr/opt/zendstudio/ZendStudio /usr/bin/zendstudio	
+	ln -s /usr/opt/zendstudio/ZendStudio /usr/bin/zendstudio
 
 cat <<EOF >/usr/share/applications/zendstudio.desktop
 [Desktop Entry]
@@ -112,11 +113,18 @@ install_sublime(){
 	cd -
 }
 
+install_composer(){
+	cd /tmp
+	wget -c $COMPOSER_URL >/dev/null
+	chmod +x composer.phar
+	mv composer.phar /usr/bin/composer
+}
+
 install_soapui(){
 	cd /tmp
 	wget -c $SOAPUI_URL >/dev/null
 
-	tar zxvf soapui* >/dev/null 
+	tar zxvf soapui* >/dev/null
 	mv soapui-4.6.0/ /opt/soapui >/dev/null
 	ln -s /usr/opt/soapui/bin/soapui.sh /usr/bin/soapui >/dev/null
 	rm -f soapui*
@@ -147,6 +155,12 @@ if(NEXT != 's');then
 	exec "Installing Zend Studio" "install_zs"
 fi
 
+echo -en "Press enter to install Composer or s for SKIP \r"
+read NEXT
+if(NEXT != 's');then
+	exec "Installing Composer" "install_composer"
+fi
+
 echo -en "Press enter to downlad Sublime Text 3 or s for SKIP \r"
 read NEXT
 if(NEXT != 's');then
@@ -158,13 +172,3 @@ read NEXT
 if(NEXT != 's');then
 	exec "Installing yED" "install_yed"
 fi
-
-
-
-
-
-cd  ~/
-wget -c $SOAPUI_URL
-
-
-
