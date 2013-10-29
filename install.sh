@@ -142,6 +142,14 @@ EOF
 	cd -
 }
 
+install_vbox(){
+	cd /tmp
+	wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | apt-key add -
+	echo "deb http://download.virtualbox.org/virtualbox/debian `lsb_release -sc` contrib" | sudo tee -a /etc/apt/sources.list.d/virtualbox.list
+	exec "Update repositories" "apt-get update"
+	exec "Installing virtualbox" "apt-get install virtualbox-4.3"
+}
+
 install_yed(){
 	cd /tmp
 	wget -c --output-document=yed.sh $YED_URL >/dev/null
@@ -171,4 +179,10 @@ echo -en "Press enter to downlad yED or s for SKIP \r"
 read NEXT
 if(NEXT != 's');then
 	exec "Installing yED" "install_yed"
+fi
+
+echo -en "Press enter to downlad Virtual Box or s for SKIP \r"
+read NEXT
+if(NEXT != 's');then
+	exec "" "install_vbox"
 fi
