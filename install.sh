@@ -79,6 +79,13 @@ do
 	exec "Installing $PACKET" "apt-get install -y $PACKET"
 done
 
+#Config GIT
+git config --global mergetool.keepBackup false
+git config --global branch.autosetuprebase always
+git config --global pull.rebase true
+git config --global core.autocrlf input
+git config --global core.safecrlf true
+
 
 install_zs(){
 	cd /tmp
