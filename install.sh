@@ -44,7 +44,7 @@ ZEND_SERVER_REPO="deb http://repos.zend.com/zend-server/6.0/deb server non-free"
 POSTGRES_REPO="deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main"
 MYSQL_DEFAULT_PASSWORD="root"
 COMPOSER_URL="http://getcomposer.org/composer.phar"
-
+JAVA_URL="http://download.oracle.com/otn-pub/java/jdk/7u45-b18/jre-7u45-linux-x64.tar.gz?AuthParam=1383148760_189291b4b4eefdec0a5f720bb0e6516a"
 
 echo $ZEND_SERVER_REPO > /etc/apt/sources.list.d/zend.list
 wget http://repos.zend.com/zend.key -O- 2> /dev/null | apt-key add - >/dev/null
@@ -57,14 +57,12 @@ echo $POSTGRES_REPO > /etc/apt/sources.list.d/postgres.list
 wget https://www.postgresql.org/media/keys/ACCC4CF8.asc -O- 2> /dev/null | apt-key add - >/dev/null
 exec "Add Postgresql repository"
 
-#Ajout Depot Gnome PPA
-add-apt-repository -y ppa:gnome3-team/gnome3 > /dev/null 2>&1
-exec "Add Gnome3 repository"
-
 #Ajout depot Sun Java
-add-apt-repository -y ppa:webupd8team/java > /dev/null 2>&1
-exec "Add Sun Java repository"
+cd /tmp
+wget -c $JAVA_URL > /dev/null
 
+exec "Add Sun Java repository"
+cd -
 
 
 exec "Update repositories" "apt-get update"
