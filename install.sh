@@ -25,22 +25,22 @@ exec(){
 
 }
 
-PACKET_LIST="geany guake openjdk-7-jre zend-server-php-5.3 mysql-server pgadmin3 git gitk putty filezilla nfs-common firefox chromium-browser terminator playonlinux mysql-workbench oracle-java7-installer ssh shutter meld"
+PACKET_LIST="geany guake openjdk-7-jre zend-server-php-5.3 mysql-server pgadmin3 git gitk putty filezilla nfs-common firefox chromium-browser terminator playonlinux mysql-workbench ssh shutter meld"
 
 
 #Detect System
 if [ $(getconf LONG_BIT) = '64' ]; then
-	ZEND_STUDIO_URL="http://downloads.zend.com/studio-eclipse/10.0.1/ZendStudio-10.1.0-x86_64.tar.gz"
-	SUBLIME_URL="http://c758482.r82.cf2.rackcdn.com/sublime_text_3_build_3047_x64.tar.bz2"
+	ZEND_STUDIO_URL="http://downloads.zend.com/studio-eclipse/10.5.0-EA/ZendStudio-10.5.0-linux.gtk.x86_64.tar.gz"
+	SUBLIME_URL="http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2%20x64.tar.bz2"
 	PACKET_LIST="$PACKET_LIST ia32-libs"
 	YED_URL="http://www.yworks.com/products/yed/demo/yEd-3.11.1_64-bit_setup.sh"
 else
-	ZEND_STUDIO_URL="http://downloads.zend.com/studio-eclipse/10.0.1/ZendStudio-10.1.0-x86.tar.gz"
-	SUBLIME_URL="http://c758482.r82.cf2.rackcdn.com/sublime_text_3_build_3047_x32.tar.bz2"
+	ZEND_STUDIO_URL="http://downloads.zend.com/studio-eclipse/10.5.0-EA/ZendStudio-10.5.0-linux.gtk.x86.tar.gz"
+	SUBLIME_URL="http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2.tar.bz2"
 	YED_URL="http://www.yworks.com/products/yed/demo/yEd-3.11.1_32-bit_setup.sh"
 fi
 SOAPUI_URL="http://downloads.sourceforge.net/project/soapui/soapui/4.6.0/soapui-4.6.0-linux-bin.tar.gz"
-ZEND_SERVER_REPO="deb http://repos.zend.com/zend-server/6.0/deb server non-free"
+ZEND_SERVER_REPO="deb http://repos.zend.com/zend-server/6.1/deb server non-free"
 POSTGRES_REPO="deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main"
 MYSQL_DEFAULT_PASSWORD="root"
 COMPOSER_URL="http://getcomposer.org/composer.phar"
@@ -77,6 +77,13 @@ do
 	exec "Installing $PACKET" "apt-get install -y $PACKET"
 done
 
+#Config GIT
+git config --global mergetool.keepBackup false
+git config --global branch.autosetuprebase always
+git config --global pull.rebase true
+git config --global core.autocrlf input
+git config --global core.safecrlf true
+git config --global merge.tool meld
 
 install_zs(){
 	cd /tmp
