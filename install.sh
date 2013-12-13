@@ -30,12 +30,12 @@ PACKET_LIST="geany guake openjdk-7-jre zend-server-php-5.4 pgadmin3 git gitk put
 
 #Detect System
 if [ $(getconf LONG_BIT) = '64' ]; then
-	ZEND_STUDIO_URL="http://downloads.zend.com/studio-eclipse/10.0.1/ZendStudio-10.1.0-x86_64.tar.gz"
+	ZEND_STUDIO_URL="http://downloads.zend.com/studio-eclipse/10.5.0/ZendStudio-10.5.0-linux.gtk.x86_64.tar.gz"
 	SUBLIME_URL="http://c758482.r82.cf2.rackcdn.com/sublime_text_3_build_3047_x64.tar.bz2"
 	PACKET_LIST="$PACKET_LIST ia32-libs"
 	YED_URL="http://www.yworks.com/products/yed/demo/yEd-3.11.1_64-bit_setup.sh"
 else
-	ZEND_STUDIO_URL="http://downloads.zend.com/studio-eclipse/10.0.1/ZendStudio-10.1.0-x86.tar.gz"
+	ZEND_STUDIO_URL="http://downloads.zend.com/studio-eclipse/10.5.0/ZendStudio-10.5.0-linux.gtk.x86.tar.gz"
 	SUBLIME_URL="http://c758482.r82.cf2.rackcdn.com/sublime_text_3_build_3047_x32.tar.bz2"
 	YED_URL="http://www.yworks.com/products/yed/demo/yEd-3.11.1_32-bit_setup.sh"
 fi
