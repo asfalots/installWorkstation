@@ -25,7 +25,7 @@ exec(){
 
 }
 
-PACKET_LIST="geany guake openjdk-7-jre zend-server-php-5.3 mysql-server pgadmin3 git gitk putty filezilla nfs-common firefox chromium-browser terminator playonlinux mysql-workbench oracle-java7-installer ssh shutter meld"
+PACKET_LIST="geany guake openjdk-7-jre zend-server-php-5.4 pgadmin3 git gitk putty filezilla nfs-common firefox chromium-browser terminator playonlinux mysql-workbench oracle-java7-installer ssh shutter meld"
 
 
 #Detect System
@@ -40,9 +40,8 @@ else
 	YED_URL="http://www.yworks.com/products/yed/demo/yEd-3.11.1_32-bit_setup.sh"
 fi
 SOAPUI_URL="http://downloads.sourceforge.net/project/soapui/soapui/4.6.0/soapui-4.6.0-linux-bin.tar.gz"
-ZEND_SERVER_REPO="deb http://repos.zend.com/zend-server/6.0/deb server non-free"
+ZEND_SERVER_REPO="deb http://repos.zend.com/zend-server/6.2/deb_ssl1.0 server non-free"
 POSTGRES_REPO="deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main"
-MYSQL_DEFAULT_PASSWORD="root"
 COMPOSER_URL="http://getcomposer.org/composer.phar"
 
 
@@ -69,10 +68,6 @@ exec "Add Sun Java repository"
 
 exec "Update repositories" "apt-get update"
 exec "Update Packages" "apt-get dist-upgrade -y"
-exec "Installing debconf" "apt-get install -y debconf"
-
-echo mysql-server-5.0 mysql-server/root_password password $MYSQL_DEFAULT_PASSWORD | debconf-set-selections
-echo mysql-server-5.0 mysql-server/root_password_again password $MYSQL_DEFAULT_PASSWORD | debconf-set-selections
 
 for PACKET in $PACKET_LIST
 do
