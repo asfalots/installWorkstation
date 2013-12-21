@@ -86,8 +86,8 @@ install_zs(){
 	cd /tmp
 	wget -c $ZEND_STUDIO_URL >/dev/null
 	tar -zxvf Zend* >/dev/null
-	mv ZendStudio /usr/opt/zendstudio
-	ln -s /usr/opt/zendstudio/ZendStudio /usr/bin/zendstudio
+	mv ZendStudio /opt/zendstudio
+	ln -s /opt/zendstudio/ZendStudio /usr/bin/zendstudio
 
 cat <<EOF >/usr/share/applications/zendstudio.desktop
 [Desktop Entry]
@@ -95,7 +95,7 @@ Name=Zend Studio 10
 Comment=
 TryExec=zendstudio
 Exec=zendstudio
-Icon=/usr/opt/zendstudio/icon.xpm
+Icon=/opt/zendstudio/icon.xpm
 Type=Application
 Categories=GNOME;GTK;
 StartupNotify=true
