@@ -161,30 +161,30 @@ install_yed(){
 
 echo -en "Press enter to downlad Zend Studio or s for SKIP \r"
 read NEXT
-if(NEXT != 's');then
+if($NEXT != 's');then
 	exec "Installing Zend Studio" "install_zs"
 fi
 
 echo -en "Press enter to install Composer or s for SKIP \r"
 read NEXT
-if(NEXT != 's');then
+if($NEXT != 's');then
 	exec "Installing Composer" "install_composer"
 fi
 
 echo -en "Press enter to downlad Sublime Text 3 or s for SKIP \r"
 read NEXT
-if(NEXT != 's');then
+if($NEXT != 's');then
 	exec "Installing Sublime Text 3" "install_sublime"
 fi
 
 echo -en "Press enter to downlad yED or s for SKIP \r"
 read NEXT
-if(NEXT != 's');then
+if($NEXT != 's');then
 	exec "Installing yED" "install_yed"
 fi
 
 echo -en "Press enter to downlad Virtual Box or s for SKIP \r"
 read NEXT
-if(NEXT != 's');then
+if($NEXT != 's');then
 	exec "" "install_vbox"
 fi
