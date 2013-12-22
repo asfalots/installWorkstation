@@ -1,6 +1,8 @@
-#Install Workstation
+Install Workstation
+===================
 
-##Description
+Description
+-----------
 
 Install all basic stuff for php Programming from an Ubuntu Fresh Install:
 
@@ -14,6 +16,7 @@ Install all basic stuff for php Programming from an Ubuntu Fresh Install:
 * Yed
 
 
-##Requirements
+Requirements
+------------
 
 * Ubuntu Gnome 13.04
