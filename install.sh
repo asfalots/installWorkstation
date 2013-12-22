@@ -34,10 +34,12 @@ if [ $(getconf LONG_BIT) = '64' ]; then
 	SUBLIME_URL="http://c758482.r82.cf2.rackcdn.com/sublime_text_3_build_3059_x64.tar.bz2"
 	PACKET_LIST="$PACKET_LIST ia32-libs"
 	YED_URL="http://www.yworks.com/products/yed/demo/yEd-3.11.1_64-bit_setup.sh"
+	PGMODELER_URL="http://www.pgmodeler.com.br/releases/0.6.2/pgmodeler-0.6.2-linux64.tar.gz"
 else
 	ZEND_STUDIO_URL="http://downloads.zend.com/studio-eclipse/10.5.0/ZendStudio-10.5.0-linux.gtk.x86.tar.gz"
 	SUBLIME_URL="http://c758482.r82.cf2.rackcdn.com/sublime_text_3_build_3059_x32.tar.bz2"
 	YED_URL="http://www.yworks.com/products/yed/demo/yEd-3.11.1_32-bit_setup.sh"
+	PGMODELER_URL="http://www.pgmodeler.com.br/releases/0.6.2/pgmodeler-0.6.2-linux32.tar.gz"
 fi
 SOAPUI_URL="http://downloads.sourceforge.net/project/soapui/soapui/4.6.0/soapui-4.6.0-linux-bin.tar.gz"
 ZEND_SERVER_REPO="deb http://repos.zend.com/zend-server/6.2/deb_ssl1.0 server non-free"
@@ -157,6 +159,29 @@ install_yed(){
 	wget -c --output-document=yed.sh $YED_URL >/dev/null
 	chmod +x yed.sh
 	./yed.sh
+}
+
+install_pgmodeler(){
+	apt-get install -y qt5-default
+	cd /tmp
+	wget -c $PGMODELER_URL
+	tar zxvf pgmodeler*
+	find /tmp -type d -name "pgmod*" -exec mv {} /opt/pgmodeler \;
+	mv /tmp/pgmodeler.vars /etc/profile.d/pgmodeler.sh
+	chmod +x /etc/profile.d/pgmodeler.sh
+
+cat <<EOF >/usr/share/applications/pgmodeler.desktop
+[Desktop Entry]
+Name=PGModeler
+Comment=
+TryExec=pgmodeler
+Exec=pgmodeler
+Icon=/opt/pgmodeler/conf/pgmodeler_logo.png
+Type=Application
+Categories=GNOME;GTK;
+StartupNotify=true
+EOF
+
 }
 
 echo -en "Press enter to downlad Zend Studio or s for SKIP \r"
