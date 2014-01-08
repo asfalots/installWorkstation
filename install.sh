@@ -77,7 +77,7 @@ update_gnome3(){
 
 install_git(){
 
-	apt-get install -y "git gitk"
+	apt-get install -y "git gitk meld"
 	git config --global mergetool.keepBackup false
 	git config --global branch.autosetuprebase always
 	git config --global pull.rebase true
@@ -86,7 +86,7 @@ install_git(){
 }
 
 install_basic(){
-	PACKET_LIST="geany guake putty filezilla nfs-common firefox chromium-browser terminator playonlinux ssh shutter meld"
+	PACKET_LIST="geany guake putty filezilla nfs-common firefox chromium-browser terminator playonlinux ssh shutter"
 	for PACKET in $PACKET_LIST
 	do
 		exec "Installing $PACKET" "apt-get install -y $PACKET"
