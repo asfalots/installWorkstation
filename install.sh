@@ -28,7 +28,7 @@ POSTGRES_REPO="deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main"
 COMPOSER_URL="http://getcomposer.org/composer.phar"
 
 
-FUNCLIST="update_gnome3 install_basic install_zendserver install_postgres install_javasun install_git install_zendstudio install_sublime install_composer install_soapui install_vbox install_yed install_pgmodeler"
+FUNCLIST="update_gnome3 install_basic install_zendserver install_postgres install_javasun install_git install_zendstudio install_sublime install_composer install_soapui install_vbox install_yed install_pgmodeler install_hamster"
 
 
 
@@ -193,6 +193,15 @@ EOF
 
 }
 
+install_hamster(){
+	cd /tmp
+	apt-get install -y gettext intltool python-gconf
+	git clone https://github.com/projecthamster/hamster.git
+	cd hamster
+	./waf configure build --prefix=/usr
+	./waf install
+	cd -
+}
 
 
 fullInstall(){
