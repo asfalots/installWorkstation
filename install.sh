@@ -35,7 +35,7 @@ FUNCLIST="update_gnome3 install_basic install_zendserver install_postgres instal
 exec(){
 	echo -en "$1...\r"
 
-	$2 2>/tmp/error.log >/dev/null
+	$2 2>/tmp/error.log
 
 
 	if(($? == O)); then
@@ -45,7 +45,7 @@ exec(){
 		echo -e "\033[33m [FAILED] \033[0m $1"
 		cat /tmp/error.log
 	fi
-
+	clear
 }
 
 
@@ -207,7 +207,7 @@ install_hamster(){
 fullInstall(){
 	for FUNC in $FUNCLIST
 	do
-		exec $(FUNC)
+		exec $FUNC $FUNC
 	done
 }
 
