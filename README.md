@@ -20,3 +20,14 @@ Requirements
 ------------
 
 * Ubuntu Gnome 13.10
+
+
+Gnome-Extensions
+----------------
+
+* Advanced Volume Mixer
+* Alternate Tab
+* Backslide
+* Brightness Control
+* Pixel Saver
+* Show Desktop from overview
