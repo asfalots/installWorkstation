@@ -23,7 +23,7 @@ else
 	PGMODELER_URL="http://www.pgmodeler.com.br/releases/0.6.2/pgmodeler-0.6.2-linux32.tar.gz"
 fi
 SOAPUI_URL="http://downloads.sourceforge.net/project/soapui/soapui/4.6.0/soapui-4.6.0-linux-bin.tar.gz"
-ZEND_SERVER_REPO="deb http://repos.zend.com/zend-server/6.2/deb_ssl1.0 server non-free"
+ZEND_SERVER_REPO="deb http://repos.zend.com/zend-server/6.3/deb_apache2.4 server non-free"
 POSTGRES_REPO="deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main"
 COMPOSER_URL="http://getcomposer.org/composer.phar"
 

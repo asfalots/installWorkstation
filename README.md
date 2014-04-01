@@ -6,7 +6,7 @@ Description
 
 Install all basic stuff for php Programming from an Ubuntu Fresh Install:
 
-* Zend Server 6.2
+* Zend Server 6.3 Apache 2.4
 * Zend Studio 10.5
 * GIT
 * Sublime Text 3
@@ -19,4 +19,4 @@ Install all basic stuff for php Programming from an Ubuntu Fresh Install:
 Requirements
 ------------
 
-* Ubuntu Gnome 13.04
+* Ubuntu Gnome 13.10
