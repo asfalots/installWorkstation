@@ -11,24 +11,24 @@ fi
 
 #Detect System
 if [ $(getconf LONG_BIT) = '64' ]; then
-	ZEND_STUDIO_URL="http://downloads.zend.com/studio-eclipse/10.5.0/ZendStudio-10.5.0-linux.gtk.x86_64.tar.gz"
+	ZEND_STUDIO_URL="http://downloads.zend.com/studio-eclipse/11.0.1/ZendStudio-11.0.1-linux.gtk.x86_64.tar.gz"
 	SUBLIME_URL="http://c758482.r82.cf2.rackcdn.com/sublime_text_3_build_3059_x64.tar.bz2"
 	PACKET_LIST="$PACKET_LIST ia32-libs"
 	YED_URL="http://www.yworks.com/products/yed/demo/yEd-3.11.1_64-bit_setup.sh"
 	PGMODELER_URL="http://www.pgmodeler.com.br/releases/0.6.2/pgmodeler-0.6.2-linux64.tar.gz"
 else
-	ZEND_STUDIO_URL="http://downloads.zend.com/studio-eclipse/10.5.0/ZendStudio-10.5.0-linux.gtk.x86.tar.gz"
+	ZEND_STUDIO_URL="http://downloads.zend.com/studio-eclipse/11.0.1/ZendStudio-11.0.1-linux.gtk.x86.tar.gz"
 	SUBLIME_URL="http://c758482.r82.cf2.rackcdn.com/sublime_text_3_build_3059_x32.tar.bz2"
 	YED_URL="http://www.yworks.com/products/yed/demo/yEd-3.11.1_32-bit_setup.sh"
 	PGMODELER_URL="http://www.pgmodeler.com.br/releases/0.6.2/pgmodeler-0.6.2-linux32.tar.gz"
 fi
-SOAPUI_URL="http://downloads.sourceforge.net/project/soapui/soapui/4.6.0/soapui-4.6.0-linux-bin.tar.gz"
-ZEND_SERVER_REPO="deb http://repos.zend.com/zend-server/6.3/deb_apache2.4 server non-free"
+SOAPUI_URL="http://optimate.dl.sourceforge.net/project/soapui/soapui/5.0.0/SoapUI-5.0.0-linux-bin.tar.gz"
+ZEND_SERVER_REPO="deb http://repos.zend.com/zend-server/7.0/deb_apache2.4 server non-free"
 POSTGRES_REPO="deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main"
 COMPOSER_URL="http://getcomposer.org/composer.phar"
 
 
-FUNCLIST="update_gnome3 install_basic install_zendserver install_postgres install_javasun install_git install_zendstudio install_sublime install_composer install_soapui install_vbox install_yed install_pgmodeler install_hamster"
+FUNCLIST="update_gnome3 install_basic install_zendserver install_postgres install_javasun install_git install_zendstudio install_sublime install_composer install_soapui install_vbox  install_hamster"
 
 
 
