@@ -11,7 +11,7 @@ fi
 
 #Detect System
 if [ $(getconf LONG_BIT) = '64' ]; then
-	ZEND_STUDIO_URL="http://downloads.zend.com/studio-eclipse/11.0.1/ZendStudio-11.0.1-linux.gtk.x86_64.tar.gz"
+	ZEND_STUDIO_URL="http://downloads.zend.com/studio-eclipse/12.0.1/ZendStudio-12.0.1-linux.gtk.x86_64.tar.gz"
 	SUBLIME_URL="http://c758482.r82.cf2.rackcdn.com/sublime_text_3_build_3059_x64.tar.bz2"
 	PACKET_LIST="$PACKET_LIST ia32-libs"
 	YED_URL="http://www.yworks.com/products/yed/demo/yEd-3.11.1_64-bit_setup.sh"
